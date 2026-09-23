@@ -1,0 +1,3 @@
+-r requirements.txt
+# Optional adapters; live model inference is not validated in the baseline run.
+sentence-transformers>=3,<6

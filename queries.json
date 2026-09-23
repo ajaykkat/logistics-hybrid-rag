@@ -1,0 +1,192 @@
+[
+  {
+    "id": "q01",
+    "query": "When should Northstar escalate a late shipment?",
+    "relevant": [
+      "delay"
+    ]
+  },
+  {
+    "id": "q02",
+    "query": "Carrier has not acknowledged an ETA exception. Who gets notified?",
+    "relevant": [
+      "delay"
+    ]
+  },
+  {
+    "id": "q03",
+    "query": "What temperature range is allowed for refrigerated loads?",
+    "relevant": [
+      "temperature"
+    ]
+  },
+  {
+    "id": "q04",
+    "query": "Who can release a quarantined cold-chain shipment?",
+    "relevant": [
+      "temperature"
+    ]
+  },
+  {
+    "id": "q05",
+    "query": "What must a proof of delivery include?",
+    "relevant": [
+      "pod"
+    ]
+  },
+  {
+    "id": "q06",
+    "query": "The POD photo is unreadable and has no signature. What next?",
+    "relevant": [
+      "pod"
+    ]
+  },
+  {
+    "id": "q07",
+    "query": "What evidence is required for detention charges?",
+    "relevant": [
+      "detention"
+    ]
+  },
+  {
+    "id": "q08",
+    "query": "How much free loading time does Northstar allow?",
+    "relevant": [
+      "detention"
+    ]
+  },
+  {
+    "id": "q09",
+    "query": "How do we reschedule a missed delivery appointment?",
+    "relevant": [
+      "appointment"
+    ]
+  },
+  {
+    "id": "q10",
+    "query": "How do we prevent duplicate webhook state changes?",
+    "relevant": [
+      "webhook"
+    ]
+  },
+  {
+    "id": "q11",
+    "query": "What should happen after webhook retries are exhausted?",
+    "relevant": [
+      "webhook"
+    ]
+  },
+  {
+    "id": "q12",
+    "query": "A repeated SFTP batch has a different checksum. What should happen?",
+    "relevant": [
+      "sftp"
+    ]
+  },
+  {
+    "id": "q13",
+    "query": "Which validations run before importing manifest files?",
+    "relevant": [
+      "sftp"
+    ]
+  },
+  {
+    "id": "q14",
+    "query": "What should happen to an unknown EDI 214 status code?",
+    "relevant": [
+      "edi"
+    ]
+  },
+  {
+    "id": "q15",
+    "query": "What is required when invoice currencies do not match?",
+    "relevant": [
+      "invoice"
+    ]
+  },
+  {
+    "id": "q16",
+    "query": "Which evidence should we capture for damaged freight?",
+    "relevant": [
+      "damage"
+    ]
+  },
+  {
+    "id": "q17",
+    "query": "Who handles a customs hold and which details are needed?",
+    "relevant": [
+      "customs"
+    ]
+  },
+  {
+    "id": "q18",
+    "query": "Can an unverified email change the delivery destination?",
+    "relevant": [
+      "address"
+    ]
+  },
+  {
+    "id": "q19",
+    "query": "What should we check when GPS tracking stops updating?",
+    "relevant": [
+      "tracking"
+    ]
+  },
+  {
+    "id": "q20",
+    "query": "Where should customer identity come from for retrieval?",
+    "relevant": [
+      "access"
+    ]
+  },
+  {
+    "id": "q21",
+    "query": "How long are exception attachments retained after closure?",
+    "relevant": [
+      "retention"
+    ]
+  },
+  {
+    "id": "q22",
+    "query": "What must the owner record before closing an exception?",
+    "relevant": [
+      "closure"
+    ]
+  },
+  {
+    "id": "q23",
+    "query": "Which procedures cover an unreadable POD and invoice mismatch?",
+    "relevant": [
+      "pod",
+      "invoice"
+    ]
+  },
+  {
+    "id": "q24",
+    "query": "How do retry and duplicate handling differ for webhooks and SFTP batches?",
+    "relevant": [
+      "webhook",
+      "sftp"
+    ]
+  },
+  {
+    "id": "q25",
+    "query": "Who won the world chess championship?",
+    "relevant": []
+  },
+  {
+    "id": "q26",
+    "query": "Give me a recipe for chocolate cake",
+    "relevant": []
+  },
+  {
+    "id": "q27",
+    "query": "What is CEDAR-DEMO-ONLY?",
+    "relevant": []
+  },
+  {
+    "id": "q28",
+    "query": "What is the salary of the warehouse manager?",
+    "relevant": []
+  }
+]

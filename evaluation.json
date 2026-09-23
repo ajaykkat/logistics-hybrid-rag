@@ -1,0 +1,1954 @@
+{
+  "scope": "northstar",
+  "corpus_sha256": "38ca9eafb713c75706cefc776eb27dd00fea8f036134ab65b5a9f28ae4048abb",
+  "backend": "lsa-tfidf",
+  "reranker": "deterministic-feature-baseline",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "sklearn": "1.8.0",
+  "query_count": 28,
+  "warning": "Synthetic development set, not a held-out or production benchmark. Latency is hardware-dependent and excludes index/model loading.",
+  "summary": {
+    "bm25": {
+      "recall_at_5": 1.0,
+      "mrr_at_5": 1.0,
+      "ndcg_at_5": 1.0,
+      "unanswerable_abstention_rate": 0.75,
+      "latency_p50_ms": 0.688,
+      "latency_p95_ms": 0.862
+    },
+    "dense": {
+      "recall_at_5": 1.0,
+      "mrr_at_5": 1.0,
+      "ndcg_at_5": 0.9915,
+      "unanswerable_abstention_rate": 0.75,
+      "latency_p50_ms": 0.759,
+      "latency_p95_ms": 0.909
+    },
+    "hybrid": {
+      "recall_at_5": 1.0,
+      "mrr_at_5": 1.0,
+      "ndcg_at_5": 1.0,
+      "unanswerable_abstention_rate": 0.75,
+      "latency_p50_ms": 0.769,
+      "latency_p95_ms": 1.141
+    },
+    "hybrid-rerank": {
+      "recall_at_5": 1.0,
+      "mrr_at_5": 1.0,
+      "ndcg_at_5": 0.9967,
+      "unanswerable_abstention_rate": 0.75,
+      "latency_p50_ms": 0.807,
+      "latency_p95_ms": 0.983
+    }
+  },
+  "details": [
+    {
+      "id": "q01",
+      "mode": "bm25",
+      "ranked": [
+        "delay",
+        "detention",
+        "temperature",
+        "webhook"
+      ],
+      "relevant": [
+        "delay"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q02",
+      "mode": "bm25",
+      "ranked": [
+        "delay",
+        "customs",
+        "edi",
+        "closure"
+      ],
+      "relevant": [
+        "delay"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q03",
+      "mode": "bm25",
+      "ranked": [
+        "temperature"
+      ],
+      "relevant": [
+        "temperature"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q04",
+      "mode": "bm25",
+      "ranked": [
+        "temperature",
+        "customs",
+        "delay",
+        "webhook"
+      ],
+      "relevant": [
+        "temperature"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q05",
+      "mode": "bm25",
+      "ranked": [
+        "pod",
+        "delay",
+        "tracking",
+        "appointment"
+      ],
+      "relevant": [
+        "pod"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q06",
+      "mode": "bm25",
+      "ranked": [
+        "pod"
+      ],
+      "relevant": [
+        "pod"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q07",
+      "mode": "bm25",
+      "ranked": [
+        "detention",
+        "sftp",
+        "invoice",
+        "closure"
+      ],
+      "relevant": [
+        "detention"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q08",
+      "mode": "bm25",
+      "ranked": [
+        "detention",
+        "delay",
+        "customs",
+        "temperature"
+      ],
+      "relevant": [
+        "detention"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q09",
+      "mode": "bm25",
+      "ranked": [
+        "appointment",
+        "detention",
+        "pod"
+      ],
+      "relevant": [
+        "appointment"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q10",
+      "mode": "bm25",
+      "ranked": [
+        "webhook",
+        "invoice",
+        "sftp"
+      ],
+      "relevant": [
+        "webhook"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q11",
+      "mode": "bm25",
+      "ranked": [
+        "webhook"
+      ],
+      "relevant": [
+        "webhook"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "abstained"
+    },
+    {
+      "id": "q12",
+      "mode": "bm25",
+      "ranked": [
+        "sftp"
+      ],
+      "relevant": [
+        "sftp"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q13",
+      "mode": "bm25",
+      "ranked": [
+        "sftp"
+      ],
+      "relevant": [
+        "sftp"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q14",
+      "mode": "bm25",
+      "ranked": [
+        "edi",
+        "delay",
+        "closure",
+        "customs"
+      ],
+      "relevant": [
+        "edi"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q15",
+      "mode": "bm25",
+      "ranked": [
+        "invoice",
+        "sftp",
+        "closure",
+        "detention"
+      ],
+      "relevant": [
+        "invoice"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "abstained"
+    },
+    {
+      "id": "q16",
+      "mode": "bm25",
+      "ranked": [
+        "damage",
+        "detention",
+        "tracking",
+        "closure"
+      ],
+      "relevant": [
+        "damage"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q17",
+      "mode": "bm25",
+      "ranked": [
+        "customs",
+        "retention"
+      ],
+      "relevant": [
+        "customs"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q18",
+      "mode": "bm25",
+      "ranked": [
+        "address",
+        "webhook",
+        "pod",
+        "appointment"
+      ],
+      "relevant": [
+        "address"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q19",
+      "mode": "bm25",
+      "ranked": [
+        "tracking",
+        "detention",
+        "closure"
+      ],
+      "relevant": [
+        "tracking"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q20",
+      "mode": "bm25",
+      "ranked": [
+        "access",
+        "closure",
+        "address"
+      ],
+      "relevant": [
+        "access"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q21",
+      "mode": "bm25",
+      "ranked": [
+        "retention",
+        "closure",
+        "delay"
+      ],
+      "relevant": [
+        "retention"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q22",
+      "mode": "bm25",
+      "ranked": [
+        "closure",
+        "sftp",
+        "appointment",
+        "pod"
+      ],
+      "relevant": [
+        "closure"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q23",
+      "mode": "bm25",
+      "ranked": [
+        "invoice",
+        "pod",
+        "access"
+      ],
+      "relevant": [
+        "pod",
+        "invoice"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "abstained"
+    },
+    {
+      "id": "q24",
+      "mode": "bm25",
+      "ranked": [
+        "sftp",
+        "webhook",
+        "invoice"
+      ],
+      "relevant": [
+        "webhook",
+        "sftp"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "abstained"
+    },
+    {
+      "id": "q25",
+      "mode": "bm25",
+      "ranked": [],
+      "relevant": [],
+      "metrics": null,
+      "answer_status": "abstained"
+    },
+    {
+      "id": "q26",
+      "mode": "bm25",
+      "ranked": [],
+      "relevant": [],
+      "metrics": null,
+      "answer_status": "abstained"
+    },
+    {
+      "id": "q27",
+      "mode": "bm25",
+      "ranked": [
+        "retention"
+      ],
+      "relevant": [],
+      "metrics": null,
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q28",
+      "mode": "bm25",
+      "ranked": [],
+      "relevant": [],
+      "metrics": null,
+      "answer_status": "abstained"
+    },
+    {
+      "id": "q01",
+      "mode": "dense",
+      "ranked": [
+        "delay",
+        "detention",
+        "temperature"
+      ],
+      "relevant": [
+        "delay"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q02",
+      "mode": "dense",
+      "ranked": [
+        "delay",
+        "detention",
+        "closure"
+      ],
+      "relevant": [
+        "delay"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q03",
+      "mode": "dense",
+      "ranked": [
+        "temperature",
+        "delay",
+        "address"
+      ],
+      "relevant": [
+        "temperature"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q04",
+      "mode": "dense",
+      "ranked": [
+        "temperature",
+        "delay",
+        "customs"
+      ],
+      "relevant": [
+        "temperature"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q05",
+      "mode": "dense",
+      "ranked": [
+        "pod",
+        "damage",
+        "address"
+      ],
+      "relevant": [
+        "pod"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q06",
+      "mode": "dense",
+      "ranked": [
+        "pod",
+        "address",
+        "retention"
+      ],
+      "relevant": [
+        "pod"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q07",
+      "mode": "dense",
+      "ranked": [
+        "detention",
+        "closure",
+        "delay"
+      ],
+      "relevant": [
+        "detention"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q08",
+      "mode": "dense",
+      "ranked": [
+        "detention",
+        "delay",
+        "closure"
+      ],
+      "relevant": [
+        "detention"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q09",
+      "mode": "dense",
+      "ranked": [
+        "appointment",
+        "delay",
+        "address",
+        "detention"
+      ],
+      "relevant": [
+        "appointment"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q10",
+      "mode": "dense",
+      "ranked": [
+        "webhook",
+        "invoice",
+        "sftp"
+      ],
+      "relevant": [
+        "webhook"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q11",
+      "mode": "dense",
+      "ranked": [
+        "webhook",
+        "appointment",
+        "invoice",
+        "retention"
+      ],
+      "relevant": [
+        "webhook"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "abstained"
+    },
+    {
+      "id": "q12",
+      "mode": "dense",
+      "ranked": [
+        "sftp",
+        "retention",
+        "invoice",
+        "damage"
+      ],
+      "relevant": [
+        "sftp"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q13",
+      "mode": "dense",
+      "ranked": [
+        "sftp",
+        "retention",
+        "damage",
+        "temperature"
+      ],
+      "relevant": [
+        "sftp"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q14",
+      "mode": "dense",
+      "ranked": [
+        "edi",
+        "closure",
+        "delay",
+        "appointment"
+      ],
+      "relevant": [
+        "edi"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q15",
+      "mode": "dense",
+      "ranked": [
+        "invoice",
+        "detention",
+        "sftp"
+      ],
+      "relevant": [
+        "invoice"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "abstained"
+    },
+    {
+      "id": "q16",
+      "mode": "dense",
+      "ranked": [
+        "damage",
+        "pod",
+        "closure"
+      ],
+      "relevant": [
+        "damage"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q17",
+      "mode": "dense",
+      "ranked": [
+        "customs",
+        "retention",
+        "delay"
+      ],
+      "relevant": [
+        "customs"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q18",
+      "mode": "dense",
+      "ranked": [
+        "address",
+        "pod",
+        "access"
+      ],
+      "relevant": [
+        "address"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q19",
+      "mode": "dense",
+      "ranked": [
+        "tracking",
+        "delay",
+        "detention"
+      ],
+      "relevant": [
+        "tracking"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q20",
+      "mode": "dense",
+      "ranked": [
+        "access",
+        "address",
+        "closure"
+      ],
+      "relevant": [
+        "access"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q21",
+      "mode": "dense",
+      "ranked": [
+        "retention",
+        "closure",
+        "delay"
+      ],
+      "relevant": [
+        "retention"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q22",
+      "mode": "dense",
+      "ranked": [
+        "closure",
+        "detention",
+        "delay",
+        "retention"
+      ],
+      "relevant": [
+        "closure"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q23",
+      "mode": "dense",
+      "ranked": [
+        "invoice",
+        "detention",
+        "address",
+        "pod"
+      ],
+      "relevant": [
+        "pod",
+        "invoice"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 0.8772153153380493
+      },
+      "answer_status": "abstained"
+    },
+    {
+      "id": "q24",
+      "mode": "dense",
+      "ranked": [
+        "sftp",
+        "invoice",
+        "webhook"
+      ],
+      "relevant": [
+        "webhook",
+        "sftp"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 0.9197207891481876
+      },
+      "answer_status": "abstained"
+    },
+    {
+      "id": "q25",
+      "mode": "dense",
+      "ranked": [],
+      "relevant": [],
+      "metrics": null,
+      "answer_status": "abstained"
+    },
+    {
+      "id": "q26",
+      "mode": "dense",
+      "ranked": [],
+      "relevant": [],
+      "metrics": null,
+      "answer_status": "abstained"
+    },
+    {
+      "id": "q27",
+      "mode": "dense",
+      "ranked": [
+        "retention",
+        "pod",
+        "delay"
+      ],
+      "relevant": [],
+      "metrics": null,
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q28",
+      "mode": "dense",
+      "ranked": [],
+      "relevant": [],
+      "metrics": null,
+      "answer_status": "abstained"
+    },
+    {
+      "id": "q01",
+      "mode": "hybrid",
+      "ranked": [
+        "delay",
+        "detention",
+        "temperature",
+        "appointment"
+      ],
+      "relevant": [
+        "delay"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q02",
+      "mode": "hybrid",
+      "ranked": [
+        "delay",
+        "customs",
+        "retention",
+        "closure"
+      ],
+      "relevant": [
+        "delay"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q03",
+      "mode": "hybrid",
+      "ranked": [
+        "temperature",
+        "delay",
+        "address"
+      ],
+      "relevant": [
+        "temperature"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q04",
+      "mode": "hybrid",
+      "ranked": [
+        "temperature",
+        "customs",
+        "delay"
+      ],
+      "relevant": [
+        "temperature"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q05",
+      "mode": "hybrid",
+      "ranked": [
+        "pod",
+        "address",
+        "tracking"
+      ],
+      "relevant": [
+        "pod"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q06",
+      "mode": "hybrid",
+      "ranked": [
+        "pod",
+        "address",
+        "retention"
+      ],
+      "relevant": [
+        "pod"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q07",
+      "mode": "hybrid",
+      "ranked": [
+        "detention",
+        "invoice",
+        "closure",
+        "sftp"
+      ],
+      "relevant": [
+        "detention"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q08",
+      "mode": "hybrid",
+      "ranked": [
+        "detention",
+        "delay",
+        "customs",
+        "temperature"
+      ],
+      "relevant": [
+        "detention"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q09",
+      "mode": "hybrid",
+      "ranked": [
+        "appointment",
+        "detention",
+        "address"
+      ],
+      "relevant": [
+        "appointment"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q10",
+      "mode": "hybrid",
+      "ranked": [
+        "webhook",
+        "invoice",
+        "sftp"
+      ],
+      "relevant": [
+        "webhook"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q11",
+      "mode": "hybrid",
+      "ranked": [
+        "webhook",
+        "appointment",
+        "invoice",
+        "retention"
+      ],
+      "relevant": [
+        "webhook"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "abstained"
+    },
+    {
+      "id": "q12",
+      "mode": "hybrid",
+      "ranked": [
+        "sftp",
+        "retention",
+        "invoice",
+        "damage"
+      ],
+      "relevant": [
+        "sftp"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q13",
+      "mode": "hybrid",
+      "ranked": [
+        "sftp",
+        "retention",
+        "damage",
+        "temperature"
+      ],
+      "relevant": [
+        "sftp"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q14",
+      "mode": "hybrid",
+      "ranked": [
+        "edi",
+        "closure",
+        "delay",
+        "customs"
+      ],
+      "relevant": [
+        "edi"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q15",
+      "mode": "hybrid",
+      "ranked": [
+        "invoice",
+        "detention",
+        "sftp",
+        "closure"
+      ],
+      "relevant": [
+        "invoice"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "abstained"
+    },
+    {
+      "id": "q16",
+      "mode": "hybrid",
+      "ranked": [
+        "damage",
+        "detention",
+        "closure",
+        "tracking"
+      ],
+      "relevant": [
+        "damage"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q17",
+      "mode": "hybrid",
+      "ranked": [
+        "customs",
+        "retention",
+        "delay"
+      ],
+      "relevant": [
+        "customs"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q18",
+      "mode": "hybrid",
+      "ranked": [
+        "address",
+        "pod",
+        "appointment",
+        "webhook"
+      ],
+      "relevant": [
+        "address"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q19",
+      "mode": "hybrid",
+      "ranked": [
+        "tracking",
+        "detention",
+        "closure",
+        "delay"
+      ],
+      "relevant": [
+        "tracking"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q20",
+      "mode": "hybrid",
+      "ranked": [
+        "access",
+        "address",
+        "closure"
+      ],
+      "relevant": [
+        "access"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q21",
+      "mode": "hybrid",
+      "ranked": [
+        "retention",
+        "closure",
+        "delay"
+      ],
+      "relevant": [
+        "retention"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q22",
+      "mode": "hybrid",
+      "ranked": [
+        "closure",
+        "delay",
+        "retention"
+      ],
+      "relevant": [
+        "closure"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q23",
+      "mode": "hybrid",
+      "ranked": [
+        "invoice",
+        "pod",
+        "detention"
+      ],
+      "relevant": [
+        "pod",
+        "invoice"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "abstained"
+    },
+    {
+      "id": "q24",
+      "mode": "hybrid",
+      "ranked": [
+        "sftp",
+        "webhook",
+        "invoice"
+      ],
+      "relevant": [
+        "webhook",
+        "sftp"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "abstained"
+    },
+    {
+      "id": "q25",
+      "mode": "hybrid",
+      "ranked": [],
+      "relevant": [],
+      "metrics": null,
+      "answer_status": "abstained"
+    },
+    {
+      "id": "q26",
+      "mode": "hybrid",
+      "ranked": [],
+      "relevant": [],
+      "metrics": null,
+      "answer_status": "abstained"
+    },
+    {
+      "id": "q27",
+      "mode": "hybrid",
+      "ranked": [
+        "retention",
+        "pod",
+        "delay"
+      ],
+      "relevant": [],
+      "metrics": null,
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q28",
+      "mode": "hybrid",
+      "ranked": [],
+      "relevant": [],
+      "metrics": null,
+      "answer_status": "abstained"
+    },
+    {
+      "id": "q01",
+      "mode": "hybrid-rerank",
+      "ranked": [
+        "delay",
+        "detention",
+        "temperature",
+        "appointment"
+      ],
+      "relevant": [
+        "delay"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q02",
+      "mode": "hybrid-rerank",
+      "ranked": [
+        "delay",
+        "closure",
+        "retention"
+      ],
+      "relevant": [
+        "delay"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q03",
+      "mode": "hybrid-rerank",
+      "ranked": [
+        "temperature",
+        "delay",
+        "address"
+      ],
+      "relevant": [
+        "temperature"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q04",
+      "mode": "hybrid-rerank",
+      "ranked": [
+        "temperature",
+        "delay",
+        "customs"
+      ],
+      "relevant": [
+        "temperature"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q05",
+      "mode": "hybrid-rerank",
+      "ranked": [
+        "pod",
+        "address",
+        "appointment"
+      ],
+      "relevant": [
+        "pod"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q06",
+      "mode": "hybrid-rerank",
+      "ranked": [
+        "pod",
+        "address",
+        "retention"
+      ],
+      "relevant": [
+        "pod"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q07",
+      "mode": "hybrid-rerank",
+      "ranked": [
+        "detention",
+        "invoice",
+        "closure",
+        "temperature"
+      ],
+      "relevant": [
+        "detention"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q08",
+      "mode": "hybrid-rerank",
+      "ranked": [
+        "detention",
+        "delay",
+        "retention",
+        "customs"
+      ],
+      "relevant": [
+        "detention"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q09",
+      "mode": "hybrid-rerank",
+      "ranked": [
+        "appointment",
+        "address",
+        "detention"
+      ],
+      "relevant": [
+        "appointment"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q10",
+      "mode": "hybrid-rerank",
+      "ranked": [
+        "webhook",
+        "invoice",
+        "sftp"
+      ],
+      "relevant": [
+        "webhook"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q11",
+      "mode": "hybrid-rerank",
+      "ranked": [
+        "webhook",
+        "appointment",
+        "invoice",
+        "retention"
+      ],
+      "relevant": [
+        "webhook"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "abstained"
+    },
+    {
+      "id": "q12",
+      "mode": "hybrid-rerank",
+      "ranked": [
+        "sftp",
+        "retention",
+        "invoice",
+        "damage"
+      ],
+      "relevant": [
+        "sftp"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q13",
+      "mode": "hybrid-rerank",
+      "ranked": [
+        "sftp",
+        "retention",
+        "damage",
+        "temperature"
+      ],
+      "relevant": [
+        "sftp"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q14",
+      "mode": "hybrid-rerank",
+      "ranked": [
+        "edi",
+        "closure",
+        "customs",
+        "delay"
+      ],
+      "relevant": [
+        "edi"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q15",
+      "mode": "hybrid-rerank",
+      "ranked": [
+        "invoice",
+        "detention",
+        "sftp",
+        "closure"
+      ],
+      "relevant": [
+        "invoice"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "abstained"
+    },
+    {
+      "id": "q16",
+      "mode": "hybrid-rerank",
+      "ranked": [
+        "damage",
+        "detention",
+        "closure",
+        "temperature"
+      ],
+      "relevant": [
+        "damage"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q17",
+      "mode": "hybrid-rerank",
+      "ranked": [
+        "customs",
+        "retention",
+        "delay"
+      ],
+      "relevant": [
+        "customs"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q18",
+      "mode": "hybrid-rerank",
+      "ranked": [
+        "address",
+        "pod",
+        "appointment"
+      ],
+      "relevant": [
+        "address"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q19",
+      "mode": "hybrid-rerank",
+      "ranked": [
+        "tracking",
+        "detention",
+        "closure",
+        "delay"
+      ],
+      "relevant": [
+        "tracking"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q20",
+      "mode": "hybrid-rerank",
+      "ranked": [
+        "access",
+        "address",
+        "closure"
+      ],
+      "relevant": [
+        "access"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q21",
+      "mode": "hybrid-rerank",
+      "ranked": [
+        "retention",
+        "closure",
+        "delay"
+      ],
+      "relevant": [
+        "retention"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q22",
+      "mode": "hybrid-rerank",
+      "ranked": [
+        "closure",
+        "retention",
+        "delay"
+      ],
+      "relevant": [
+        "closure"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q23",
+      "mode": "hybrid-rerank",
+      "ranked": [
+        "invoice",
+        "pod",
+        "detention"
+      ],
+      "relevant": [
+        "pod",
+        "invoice"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 1.0
+      },
+      "answer_status": "abstained"
+    },
+    {
+      "id": "q24",
+      "mode": "hybrid-rerank",
+      "ranked": [
+        "sftp",
+        "invoice",
+        "webhook"
+      ],
+      "relevant": [
+        "webhook",
+        "sftp"
+      ],
+      "metrics": {
+        "recall_at_5": 1.0,
+        "mrr_at_5": 1.0,
+        "ndcg_at_5": 0.9197207891481876
+      },
+      "answer_status": "abstained"
+    },
+    {
+      "id": "q25",
+      "mode": "hybrid-rerank",
+      "ranked": [],
+      "relevant": [],
+      "metrics": null,
+      "answer_status": "abstained"
+    },
+    {
+      "id": "q26",
+      "mode": "hybrid-rerank",
+      "ranked": [],
+      "relevant": [],
+      "metrics": null,
+      "answer_status": "abstained"
+    },
+    {
+      "id": "q27",
+      "mode": "hybrid-rerank",
+      "ranked": [
+        "retention",
+        "pod",
+        "delay"
+      ],
+      "relevant": [],
+      "metrics": null,
+      "answer_status": "supported_quotes"
+    },
+    {
+      "id": "q28",
+      "mode": "hybrid-rerank",
+      "ranked": [],
+      "relevant": [],
+      "metrics": null,
+      "answer_status": "abstained"
+    }
+  ]
+}
