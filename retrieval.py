@@ -16,6 +16,17 @@ from sklearn.preprocessing import normalize
 
 STOP = set(ENGLISH_STOP_WORDS) | {'does', 'did', 'should', 'need', 'please', 'tell'}
 
+def exact_terms(text):
+    """Require quoted phrases, underscore fields, and uppercase compound IDs literally."""
+    quoted = re.findall(r'"([^"\n]+)"|`([^`\n]+)`', text)
+    ids = re.findall(r'\b(?:[A-Z0-9]+(?:-[A-Z0-9]+)+|[A-Za-z][A-Za-z0-9]*(?:_[A-Za-z0-9]+)+)\b', text)
+    return sorted(set([part.casefold() for pair in quoted for part in pair if part] + [v.casefold() for v in ids]))
+
+
+def contains_term(text, term):
+    return re.search(r'(?<!\w)' + re.escape(term) + r'(?!\w)', text.casefold()) is not None
+
+
 def tokens(text):
     return [t for t in re.findall(r'[a-z0-9]+', text.casefold()) if t not in STOP]
 
@@ -95,9 +106,9 @@ class LSAVectors:
 class NeuralVectors:
     """Optional Sentence Transformers adapter; models download only when explicitly selected."""
     name = 'sentence-transformers'
-    def __init__(self, texts, model_name='sentence-transformers/all-MiniLM-L6-v2'):
+    def __init__(self, texts, model_name='sentence-transformers/all-MiniLM-L6-v2', revision='1110a243fdf4706b3f48f1d95db1a4f5529b4d41'):
         from sentence_transformers import SentenceTransformer
-        self.model = SentenceTransformer(model_name)
+        self.model = SentenceTransformer(model_name, revision=revision)
         self.matrix = self.model.encode(texts, normalize_embeddings=True)
 
     def score(self, query):
@@ -139,7 +150,7 @@ class Engine:
         self.reranker = None
         if neural_rerank:
             from sentence_transformers import CrossEncoder
-            self.reranker = CrossEncoder('cross-encoder/ms-marco-MiniLM-L6-v2')
+            self.reranker = CrossEncoder('cross-encoder/ms-marco-MiniLM-L6-v2', revision='233902d25c440f23af6f7d6e94d2946bac0bee0a')
         self.fingerprint = hashlib.sha256(json.dumps(list(self.documents.values()),sort_keys=True).encode()).hexdigest()
 
     def search(self, query, mode='hybrid-rerank', k=5):
@@ -195,13 +206,19 @@ class Engine:
     def answer(self, query, mode='hybrid-rerank', selector:Callable|None=None):
         started=time.perf_counter()
         retrieved=self.search(query,mode,k=5)
-        eligible=[r for r in retrieved if r['coverage']>=.40 and r['bm25']>0]
+        literals=exact_terms(query)
+        missing=[term for term in literals if not any(contains_term(t,term) for t in self.texts)]
+        eligible=[r for r in retrieved if r['coverage']>=.40 and r['bm25']>0
+                  and all(contains_term(r['title']+'\n'+r['text'],term) for term in literals)]
+        if missing:eligible=[]
         result={'query':query,'tenant':self.tenant,'mode':mode,'backend':self.dense.name,
                 'reranker':'cross-encoder' if self.reranker else 'deterministic-feature-baseline',
                 'corpus_sha256':self.fingerprint,'retrieved':retrieved,'citations':[],
-                'generator':'model-evidence-selection' if selector else 'extractive-no-llm'}
+                'generator':'model-evidence-selection' if selector else 'extractive-no-llm',
+                'answerability':{'required_literals':literals,'missing_literals':missing,
+                                 'eligible_chunks':len(eligible)}}
         if not eligible:
-            result.update(status='abstained',answer='No sufficiently supported evidence found in this scope.')
+            result.update(status='abstained',reason='missing_literal' if missing else 'insufficient_evidence',answer='No sufficiently supported evidence found in this scope.')
         else:
             try:
                 if selector:
@@ -215,9 +232,14 @@ class Engine:
                         sentences=re.findall(r'[^.!?]+[.!?]?',row['text'])
                         ranked=sorted((s.strip() for s in sentences if len(s.strip())>=12),
                                       key=lambda s:-len(set(tokens(s))&set(tokens(query))))
+                        if literals:
+                            ranked=[s for s in ranked if all(contains_term(s,t) for t in literals)]
+                            if not ranked:ranked=[row['text']]
                         if ranked:proposed.append({'chunk_id':row['id'],'quote':ranked[0]})
                         if len(proposed)==2:break
                 citations=self.verify(proposed,eligible)
+                if any(not all(contains_term(c['quote'],t) for t in literals) for c in citations):
+                    raise ValueError('selected quote does not contain the requested literal')
                 result.update(status='supported_quotes',citations=citations,
                               answer='\n\n'.join(f'[{i}] {c["quote"]}' for i,c in enumerate(citations,1)))
             except (ValueError,TypeError,KeyError) as exc:

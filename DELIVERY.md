@@ -17,7 +17,7 @@ An operations specialist needs the applicable escalation procedure while handlin
 1. Run the default app and ask about delayed shipment escalation. Check the current policy quote, version, and offsets.
 2. Compare four retrieval modes. Explain lexical matching versus latent vector similarity and why this dataset does not demonstrate hybrid gains.
 3. Ask an unrelated question, such as a chocolate cake recipe, to show abstention.
-4. Ask about CEDAR-DEMO-ONLY. Discuss the known false-positive answerability failure without implying a customer-data leak.
+4. Ask about CEDAR-DEMO-ONLY. Show identifier abstention, then ask for the exact configured invoice tolerance to explain the remaining missing-fact failure. Neither case implies a customer-data leak.
 5. Run tests to demonstrate fabricated citations, stale source content, and out-of-scope references are rejected.
 6. Explain the optional model boundary: models choose evidence; verification checks exact provenance, not truth.
 

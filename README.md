@@ -35,6 +35,7 @@ The default dense backend uses TF-IDF + truncated SVD (LSA). It is a small, insp
 ## Optional neural and local LLM paths
 
 ```sh
+pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
 pip install -r requirements-neural.txt
 python app.py --backend neural --neural-rerank
 # With an already installed and running Ollama model:
@@ -44,9 +45,17 @@ python evaluate.py --backend neural --neural-rerank --output evaluation-neural.j
 
 Neural mode uses SentenceTransformers `all-MiniLM-L6-v2`; neural reranking uses `cross-encoder/ms-marco-MiniLM-L6-v2`. Initial use downloads model weights. Ollama runs at localhost:11434 and selects exact evidence quotes in JSON; all selections still pass citation checks. It cannot add unchecked explanatory prose to the displayed answer.
 
-**Validation boundary:** the default LSA/extractive path was executed and tested. Optional neural inference and live Ollama inference were not exercised in the development environment. Ollama request/response behavior has mocked contract tests.
+**Validation boundary:** LSA, neural embeddings, and cross-encoder inference were executed. See `evaluation-neural-challenge.json` for the 28-question neural challenge run. Live Ollama inference remains untested; its request/response behavior has mocked contract tests.
 
-## Measured results
+On the challenge development set, neural hybrid fusion outperformed BM25 in document retrieval, while the cross-encoder reranker reduced ranking quality and added latency. Use `python app.py --backend neural` and select **Hybrid fusion** in the UI to explore the strongest measured retrieval configuration. Answerability remains limited; this is not a production recommendation.
+
+## Quality upgrade
+
+Unknown structured identifiers and quoted phrases now trigger abstention unless found in permitted source text and selected quotes. The Cedar-code false positive is fixed without inspecting other customers' documents.
+
+Run `python compare_quality.py` for before/after results on 56 synthetic questions. See [QUALITY.md](QUALITY.md) for answer coverage and remaining errors.
+
+## Original retrieval baseline
 
 The checked-in `evaluation.json` contains the full run, corpus fingerprint, runtime versions, and per-query results. There are 24 answerable queries and four unanswerable queries, hand-written against this same synthetic corpus. This is a development set, not an independent benchmark.
 
@@ -59,7 +68,7 @@ The checked-in `evaluation.json` contains the full run, corpus fingerprint, runt
 
 **Hybrid does not outperform BM25 here.** The corpus is too small and lexical to establish a benefit, and the feature reranker slightly worsens ordering. Metrics deduplicate document IDs from the top five retrieved chunks. Timings exclude index loading and are hardware-dependent; they are not service SLOs.
 
-Known failure: asking about `CEDAR-DEMO-ONLY` from the Northstar scope returns unrelated permitted quotes instead of abstaining. Cedar content is excluded, but keyword-based answerability is insufficient. Citation provenance is not proof of relevance, semantic entailment, policy correctness, or prompt-injection resistance. This failure is retained in the evaluation rather than hidden.
+The original baseline returned unrelated quotes for `CEDAR-DEMO-ONLY`. The upgrade now abstains. The historical run remains in `evaluation.json`. Cedar content is excluded, but keyword-based answerability is insufficient. Citation provenance is not proof of relevance, semantic entailment, policy correctness, or prompt-injection resistance. This failure is retained in the evaluation rather than hidden.
 
 ## Customer delivery scope
 
@@ -77,6 +86,8 @@ This is a loopback-only local demo. Tenant selection is a server startup option,
 | `corpus.json`, `queries.json` | Synthetic source documents and relevance labels |
 | `build_fixtures.py` | Rebuild the demonstration fixtures |
 | `evaluate.py`, `evaluation.json` | Reproduce and inspect ablations |
-| `test_retrieval.py` | 27 regression tests |
+| `test_retrieval.py` | 33 regression tests |
+| `compare_quality.py`, `quality-comparison.json` | Before/after answerability ablation |
+| `queries-challenge.json`, `QUALITY.md` | Harder development questions and error analysis |
 
 References: [SentenceTransformers retrieve/rerank](https://www.sbert.net/examples/sentence_transformer/applications/retrieve_rerank/README.html), [scikit-learn TruncatedSVD](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html), [Ollama generate API](https://docs.ollama.com/api/generate).

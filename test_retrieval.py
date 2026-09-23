@@ -41,6 +41,30 @@ class RetrievalTests(unittest.TestCase):
         self.assertEqual(self.engine.answer('chocolate cake recipe')['status'],'abstained')
     def test_low_coverage_abstains(self):
         self.assertEqual(self.engine.answer('salary warehouse manager')['status'],'abstained')
+    def test_unknown_identifiers_abstain_without_calling_model(self):
+        def forbidden(*args):raise AssertionError('Model must not be called')
+        for query in ['What is CEDAR-DEMO-ONLY?', 'Explain ACME-RELEASE-999', 'What does account_secret do?']:
+            for mode in ['bm25','dense','hybrid','hybrid-rerank']:
+                result=self.engine.answer(query,mode,selector=forbidden)
+                self.assertEqual(result['status'],'abstained')
+                self.assertEqual(result['reason'],'missing_literal')
+    def test_known_literal_can_return_evidence(self):
+        result=self.engine.answer('What does event_id do in webhook replay?')
+        self.assertEqual(result['status'],'supported_quotes')
+        self.assertTrue(all(c['document_id']=='webhook' and 'event_id' in c['quote'] for c in result['citations']))
+    def test_unknown_quoted_phrase_abstains(self):
+        self.assertEqual(self.engine.answer('Explain "automatic invoice forgiveness"')['reason'],'missing_literal')
+    def test_literal_matching_has_word_boundaries(self):
+        from retrieval import contains_term
+        self.assertFalse(contains_term('my_event_id_extra','event_id'))
+        self.assertTrue(contains_term('Preserve event_id.','event_id'))
+    def test_normal_hyphenated_prose_is_not_literal(self):
+        from retrieval import exact_terms
+        self.assertEqual(exact_terms('cold-chain quality lead'),[])
+    def test_authorized_customer_identifier_works(self):
+        result=Engine(self.docs,tenant='cedar').answer('What is CEDAR-DEMO-ONLY?')
+        self.assertEqual(result['status'],'supported_quotes')
+        self.assertTrue(all(c['document_id']=='cedar-cold' for c in result['citations']))
     def test_empty_query_rejected(self):
         with self.assertRaises(ValueError):self.engine.search(' ')
     def test_invalid_mode_rejected(self):

@@ -1,0 +1,208 @@
+[
+  {
+    "id": "c01",
+    "slice": "paraphrase",
+    "query": "The truck will arrive over two hours behind schedule. Which action starts the escalation?",
+    "relevant": [
+      "delay"
+    ]
+  },
+  {
+    "id": "c02",
+    "slice": "paraphrase",
+    "query": "The refrigeration sensor stayed too warm for a quarter of an hour. Can dispatch release the load?",
+    "relevant": [
+      "temperature"
+    ]
+  },
+  {
+    "id": "c03",
+    "slice": "paraphrase",
+    "query": "The recipient cannot read the delivery receipt image. How do we get usable evidence?",
+    "relevant": [
+      "pod"
+    ]
+  },
+  {
+    "id": "c04",
+    "slice": "paraphrase",
+    "query": "A driver wants waiting-time compensation but the departure timestamp is absent. Can we pay?",
+    "relevant": [
+      "detention"
+    ]
+  },
+  {
+    "id": "c05",
+    "slice": "paraphrase",
+    "query": "The receiver cannot take the truck at the booked time. Who arranges another slot?",
+    "relevant": [
+      "appointment"
+    ]
+  },
+  {
+    "id": "c06",
+    "slice": "paraphrase",
+    "query": "The same shipment notification arrived twice. How can we avoid applying it twice?",
+    "relevant": [
+      "webhook"
+    ]
+  },
+  {
+    "id": "c07",
+    "slice": "paraphrase",
+    "query": "A manifest arrived again with changed bytes under the same batch identifier. Is it safe to import?",
+    "relevant": [
+      "sftp"
+    ]
+  },
+  {
+    "id": "c08",
+    "slice": "paraphrase",
+    "query": "The carrier sent a status we have never mapped. Should we mark the goods delivered?",
+    "relevant": [
+      "edi"
+    ]
+  },
+  {
+    "id": "c09",
+    "slice": "paraphrase",
+    "query": "Two bills share a reference but disagree on currency. Which bill should win?",
+    "relevant": [
+      "invoice"
+    ]
+  },
+  {
+    "id": "c10",
+    "slice": "paraphrase",
+    "query": "The boxes arrived crushed. Which records should the receiving team preserve?",
+    "relevant": [
+      "damage"
+    ]
+  },
+  {
+    "id": "c11",
+    "slice": "paraphrase",
+    "query": "Border clearance is pending. Is yesterday's arrival forecast a release promise?",
+    "relevant": [
+      "customs"
+    ]
+  },
+  {
+    "id": "c12",
+    "slice": "paraphrase",
+    "query": "An email asks the driver to use a new destination. What approval is necessary?",
+    "relevant": [
+      "address"
+    ]
+  },
+  {
+    "id": "c13",
+    "slice": "paraphrase",
+    "query": "The location feed went silent. Does that establish that the cargo is lost?",
+    "relevant": [
+      "tracking"
+    ]
+  },
+  {
+    "id": "c14",
+    "slice": "paraphrase",
+    "query": "Can a browser-provided customer field choose the document access scope?",
+    "relevant": [
+      "access"
+    ]
+  },
+  {
+    "id": "c15",
+    "slice": "multi_document",
+    "query": "Which procedures govern damaged goods and missing delivery signatures?",
+    "relevant": [
+      "damage",
+      "pod"
+    ]
+  },
+  {
+    "id": "c16",
+    "slice": "multi_document",
+    "query": "How should we handle stale GPS telemetry alongside a currency mismatch?",
+    "relevant": [
+      "tracking",
+      "invoice"
+    ]
+  },
+  {
+    "id": "c17",
+    "slice": "literal",
+    "query": "What does event_id do in webhook replay?",
+    "relevant": [
+      "webhook"
+    ]
+  },
+  {
+    "id": "c18",
+    "slice": "literal",
+    "query": "Explain \"dead-letter queue\" in the retry workflow",
+    "relevant": [
+      "webhook"
+    ]
+  },
+  {
+    "id": "c19",
+    "slice": "unknown_identifier",
+    "query": "What is ACME-RELEASE-999 in the shipment procedure?",
+    "relevant": []
+  },
+  {
+    "id": "c20",
+    "slice": "unknown_identifier",
+    "query": "When does account_secret approve an invoice?",
+    "relevant": []
+  },
+  {
+    "id": "c21",
+    "slice": "unknown_identifier",
+    "query": "Explain \"automatic invoice forgiveness\"",
+    "relevant": []
+  },
+  {
+    "id": "c22",
+    "slice": "cross_scope",
+    "query": "What is CEDAR-DEMO-ONLY?",
+    "relevant": []
+  },
+  {
+    "id": "c23",
+    "slice": "missing_fact",
+    "query": "What is the detention hourly rate in dollars?",
+    "relevant": []
+  },
+  {
+    "id": "c24",
+    "slice": "missing_fact",
+    "query": "What is the exact configured invoice tolerance amount?",
+    "relevant": []
+  },
+  {
+    "id": "c25",
+    "slice": "missing_fact",
+    "query": "What is the dispatcher's personal phone number?",
+    "relevant": []
+  },
+  {
+    "id": "c26",
+    "slice": "missing_fact",
+    "query": "What is the current location of shipment 98765?",
+    "relevant": []
+  },
+  {
+    "id": "c27",
+    "slice": "missing_fact",
+    "query": "Which insurance company pays a damaged freight claim?",
+    "relevant": []
+  },
+  {
+    "id": "c28",
+    "slice": "missing_fact",
+    "query": "What is the GPS reporting interval in seconds for lane 42?",
+    "relevant": []
+  }
+]

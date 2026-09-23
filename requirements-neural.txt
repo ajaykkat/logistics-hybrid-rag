@@ -1,3 +1,6 @@
 -r requirements.txt
-# Optional adapters; live model inference is not validated in the baseline run.
-sentence-transformers>=3,<6
+# Install the CPU torch wheel first as shown in README.
+torch==2.6.0
+sentence-transformers==3.4.1
+transformers==4.48.3
+huggingface-hub==0.36.2
