@@ -124,10 +124,11 @@ def rrf(rankings, constant=60):
 
 
 class Engine:
-    def __init__(self, documents, tenant='northstar', backend='lsa', neural_rerank=False):
+    def __init__(self, documents, tenant='northstar', backend='lsa', neural_rerank=False, reader=None):
         if backend not in {'lsa','neural'}:
             raise ValueError('backend must be lsa or neural')
         self.tenant = tenant
+        self.reader = reader
         self.documents = {}
         seen = set()
         for doc in documents:
@@ -208,20 +209,30 @@ class Engine:
         retrieved=self.search(query,mode,k=5)
         literals=exact_terms(query)
         missing=[term for term in literals if not any(contains_term(t,term) for t in self.texts)]
-        eligible=[r for r in retrieved if r['coverage']>=.40 and r['bm25']>0
+        if self.reader and selector:
+            raise ValueError('QA reader and model selector cannot be combined')
+        eligible=[r for r in retrieved if (self.reader is not None or (r['coverage']>=.40 and r['bm25']>0))
                   and all(contains_term(r['title']+'\n'+r['text'],term) for term in literals)]
         if missing:eligible=[]
         result={'query':query,'tenant':self.tenant,'mode':mode,'backend':self.dense.name,
                 'reranker':'cross-encoder' if self.reranker else 'deterministic-feature-baseline',
                 'corpus_sha256':self.fingerprint,'retrieved':retrieved,'citations':[],
-                'generator':'model-evidence-selection' if selector else 'extractive-no-llm',
+                'generator':'extractive-qa' if self.reader else ('model-evidence-selection' if selector else 'extractive-no-llm'),
                 'answerability':{'required_literals':literals,'missing_literals':missing,
                                  'eligible_chunks':len(eligible)}}
         if not eligible:
             result.update(status='abstained',reason='missing_literal' if missing else 'insufficient_evidence',answer='No sufficiently supported evidence found in this scope.')
         else:
             try:
-                if selector:
+                if self.reader:
+                    selection=self.reader.select(query,eligible)
+                    proposed=selection['citations']
+                    result['answerability']['reader']=selection
+                    if not proposed:
+                        result.update(status='abstained',reason='reader_no_answer',answer='The reader found no sufficiently supported answer in the retrieved evidence.')
+                        result['latency_ms']=round((time.perf_counter()-started)*1000,3)
+                        return result
+                elif selector:
                     proposed=selector(query,eligible)
                 else:
                     proposed=[]

@@ -49,6 +49,10 @@ Neural mode uses SentenceTransformers `all-MiniLM-L6-v2`; neural reranking uses 
 
 On the challenge development set, neural hybrid fusion outperformed BM25 in document retrieval, while the cross-encoder reranker reduced ranking quality and added latency. Use `python app.py --backend neural` and select **Hybrid fusion** in the UI to explore the strongest measured retrieval configuration. Answerability remains limited; this is not a production recommendation.
 
+## Optional answerability reader
+
+`python app.py --backend neural --qa-reader` enables a local extractive reader with no-answer predictions; select **Hybrid fusion**. In the challenge development set, it rejects 10/10 unknown questions and returns evidence on 10/18 answerable ones. Wrong-clause and partial answers remain, and original-set coverage decreases, so this is **opt-in**, not the default. See [ANSWERABILITY.md](ANSWERABILITY.md) for the full comparison and passage review.
+
 ## Quality upgrade
 
 Unknown structured identifiers and quoted phrases now trigger abstention unless found in permitted source text and selected quotes. The Cedar-code false positive is fixed without inspecting other customers' documents.
@@ -86,7 +90,9 @@ This is a loopback-only local demo. Tenant selection is a server startup option,
 | `corpus.json`, `queries.json` | Synthetic source documents and relevance labels |
 | `build_fixtures.py` | Rebuild the demonstration fixtures |
 | `evaluate.py`, `evaluation.json` | Reproduce and inspect ablations |
-| `test_retrieval.py` | 33 regression tests |
+| `test_retrieval.py`, `test_qa_reader.py` | 44 regression tests |
+| `qa_reader.py`, `evaluate_answerability.py` | Optional extractive reader and policy comparison |
+| `ANSWERABILITY.md`, `answerability-comparison.json`, `answerability-review.json` | Results, traces, and passage-level failure review |
 | `compare_quality.py`, `quality-comparison.json` | Before/after answerability ablation |
 | `queries-challenge.json`, `QUALITY.md` | Harder development questions and error analysis |
 

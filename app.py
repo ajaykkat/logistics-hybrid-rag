@@ -22,7 +22,7 @@ def application(engine,selector=None):
                 data=engine.answer(params.get('q',[''])[0],params.get('mode',['hybrid-rerank'])[0],selector)
             elif path=='/api/info':
                 data={'tenant':engine.tenant,'documents':len(engine.documents),'chunks':len(engine.chunks),
-                      'backend':engine.dense.name,'generator':'local-llm' if selector else 'extractive',
+                      'backend':engine.dense.name,'generator':'extractive-qa' if engine.reader else ('local-llm' if selector else 'extractive'),
                       'corpus_sha256':engine.fingerprint}
             else:status='404 Not Found';data={'error':'not found'}
         except ValueError as exc:status='400 Bad Request';data={'error':str(exc)}
@@ -35,11 +35,14 @@ def main():
     p.add_argument('--tenant',choices=['northstar','cedar'],default='northstar')
     p.add_argument('--backend',choices=['lsa','neural'],default='lsa')
     p.add_argument('--neural-rerank',action='store_true')
-    p.add_argument('--ollama-model')
+    group=p.add_mutually_exclusive_group()
+    group.add_argument('--ollama-model')
+    group.add_argument('--qa-reader',action='store_true')
     p.add_argument('--port',type=int,default=8082)
     p.add_argument('--query');p.add_argument('--mode',default='hybrid-rerank',choices=['bm25','dense','hybrid','hybrid-rerank'])
     args=p.parse_args()
-    engine=load_engine(tenant=args.tenant,backend=args.backend,neural_rerank=args.neural_rerank)
+    from qa_reader import QAReader
+    engine=load_engine(tenant=args.tenant,backend=args.backend,neural_rerank=args.neural_rerank,reader=QAReader() if args.qa_reader else None)
     selector=OllamaSelector(args.ollama_model) if args.ollama_model else None
     if args.query:
         print(json.dumps(engine.answer(args.query,args.mode,selector),indent=2));return

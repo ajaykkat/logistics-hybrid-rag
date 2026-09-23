@@ -1,0 +1,40 @@
+{
+  "method": "Manual development review of qa_top_document outputs; not independent adjudication or a full correctness benchmark.",
+  "issues": [
+    {
+      "dataset": "queries.json",
+      "id": "q02",
+      "issue": "wrong_clause"
+    },
+    {
+      "dataset": "queries-challenge.json",
+      "id": "c01",
+      "issue": "wrong_clause"
+    },
+    {
+      "dataset": "queries-challenge.json",
+      "id": "c13",
+      "issue": "nonresponsive_clause"
+    },
+    {
+      "dataset": "queries.json",
+      "id": "q17",
+      "issue": "partial_answer"
+    },
+    {
+      "dataset": "queries.json",
+      "id": "q23",
+      "issue": "partial_answer"
+    },
+    {
+      "dataset": "queries-challenge.json",
+      "id": "c15",
+      "issue": "partial_answer"
+    },
+    {
+      "dataset": "queries-challenge.json",
+      "id": "c16",
+      "issue": "partial_answer"
+    }
+  ]
+}
